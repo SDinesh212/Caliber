@@ -1,16 +1,43 @@
 @import "tailwindcss";
 
+:root {
+  --brand-ink: #102a43;
+  --brand-ink-strong: #0f2f4a;
+  --brand-blue: #1b63ff;
+  --brand-blue-deep: #1b24f2;
+  --brand-green: #238a72;
+  --brand-green-deep: #2f7d32;
+  --brand-gold: #d8c7a8;
+  --surface-page: #f8fbff;
+  --surface-soft: #eef7ff;
+  --border-soft: #e4eaf2;
+  --text-muted: #667085;
+  --shadow-soft: 0 20px 60px rgba(15, 47, 74, 0.08);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #f8fbff;
-  color: #102a43;
+  background: var(--surface-page);
+  color: var(--brand-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(27, 99, 255, 0.16);
+  color: var(--brand-ink);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(27, 99, 255, 0.32);
+  outline-offset: 3px;
 }
 
 .animated-sheen {
@@ -53,6 +80,21 @@ body {
 
   .slow-pulse-ring {
     animation: pulse-ring 4.8s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
   }
 }
 

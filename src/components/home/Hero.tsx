@@ -13,7 +13,9 @@ export default function Hero() {
           src="/images/hero-office-team1.jpg"
           alt="Professional staffing team"
           fill
-          priority
+          preload
+          loading="eager"
+          sizes="100vw"
           className="object-cover"
         />
 
@@ -37,7 +39,7 @@ export default function Hero() {
             Connecting Great Talent with Great Opportunities
           </h1>
 
-          <p className="mt-8 max-w-[650px] text-lg leading-8 text-black/600">
+          <p className="mt-8 max-w-[650px] text-lg leading-8 text-[#102A43]">
             We bridge the gap between exceptional talent and forward-thinking
             companies. Find the perfect fit faster with intelligent staffing
             solutions.

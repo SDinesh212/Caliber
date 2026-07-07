@@ -144,7 +144,7 @@ export default function HowItWorks() {
                 className="relative z-20"
               >
                 <Image
-                  src="/images/team-staffing.png"
+                  src="/images/team-staffing1.png"
                   alt="Professional staffing team"
                   width={520}
                   height={430}

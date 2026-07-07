@@ -1,11 +1,5 @@
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
-
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -13,44 +7,13 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import BrandLogo from "@/components/layout/BrandLogo";
+import { footerLinkGroups } from "@/constants/site";
 
-const footerLinks = [
-  {
-    title: "For Employers",
-    links: [
-      "Find Talent",
-      "Executive Search",
-      "Contract Staffing",
-      "Permanent Hiring",
-    ],
-  },
-  {
-    title: "For Candidates",
-    links: [
-      "Browse Jobs",
-      "Career Advice",
-      "Resume Builder",
-      "Interview Tips",
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      "About Us",
-      "Industries",
-      "Success Stories",
-      "Careers",
-    ],
-  },
-  {
-    title: "Support",
-    links: [
-      "Help Center",
-      "Privacy Policy",
-      "Terms & Conditions",
-      "Contact",
-    ],
-  },
+const socialLinks = [
+  { label: "LinkedIn", icon: FaLinkedinIn },
+  { label: "Facebook", icon: FaFacebookF },
+  { label: "Instagram", icon: FaInstagram },
+  { label: "X", icon: FaXTwitter },
 ];
 
 export default function Footer() {
@@ -110,15 +73,11 @@ export default function Footer() {
 
             <div className="mt-8 flex gap-3">
 
-              {[
-                FaLinkedinIn,
-                FaFacebookF,
-                FaInstagram,
-                FaXTwitter,
-              ].map((Icon, index) => (
+              {socialLinks.map(({ label, icon: Icon }) => (
                 <Link
-                  key={index}
+                  key={label}
                   href="#"
+                  aria-label={label}
                   className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:border-blue-400 hover:bg-blue-500"
                 >
                   <Icon size={17} />
@@ -133,7 +92,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
 
-            {footerLinks.map((group) => (
+            {footerLinkGroups.map((group) => (
               <div key={group.title}>
 
                 <h3 className="font-bold text-white">
@@ -183,7 +142,11 @@ export default function Footer() {
                 className="min-w-0 flex-1 bg-transparent px-4 text-sm outline-none placeholder:text-white/35"
               />
 
-              <button className="grid h-11 w-11 place-items-center cursor-pointer rounded-xl bg-blue-600 transition hover:bg-blue-700">
+              <button
+                type="button"
+                aria-label="Subscribe"
+                className="grid h-11 w-11 cursor-pointer place-items-center rounded-xl bg-blue-600 transition hover:bg-blue-700"
+              >
                 <ArrowRight size={18} />
               </button>
 
@@ -200,7 +163,10 @@ export default function Footer() {
                 faster with pre-screened candidates.
               </p>
 
-              <button className="mt-5 rounded-xl bg-white px-5 py-3 font-semibold text-[#082846] transition hover:scale-105 cursor-pointer ">
+              <button
+                type="button"
+                className="mt-5 cursor-pointer rounded-xl bg-white px-5 py-3 font-semibold text-[#082846] transition hover:scale-105"
+              >
                 Schedule a Call
               </button>
 

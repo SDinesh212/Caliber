@@ -9,12 +9,6 @@ import {
   Users,
   CheckCircle2,
 } from "lucide-react";
-import {
-  fadeUp,
-  inViewViewport,
-  MagneticCard,
-  staggerContainer,
-} from "@/components/animation/MotionPrimitives";
 
 const stats = [
   {
@@ -49,61 +43,41 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section id="about" className="relative scroll-mt-28 overflow-hidden bg-white px-5 py-24">
+    <section className="relative overflow-hidden bg-[#f8fbff]  px-5 py-24">
       
       <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={inViewViewport}
-          className="mx-auto max-w-3xl text-center"
-        >
-          <motion.span
-            variants={fadeUp}
-            className="inline-flex rounded-full border border-[#dfcfb5] bg-white/80 px-4 py-2 text-sm font-bold text-[#12324f] shadow-sm"
-          >
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex rounded-full border border-[#dfcfb5] bg-white/80 px-4 py-2 text-sm font-bold text-[#12324f] shadow-sm">
             Our Impact
-          </motion.span>
+          </span>
 
-          <motion.h2
-            variants={fadeUp}
-            className="mt-5 text-3xl font-black tracking-tight text-[#12324f] md:text-5xl"
-          >
+          <h2 className="mt-5 text-3xl font-black tracking-tight text-[#12324f] md:text-5xl">
             Trusted staffing results backed by real numbers
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            variants={fadeUp}
-            className="mt-5 text-lg leading-8 text-[#667085]"
-          >
+          <p className="mt-5 text-lg leading-8 text-[#667085]">
             We help companies hire faster and candidates find better career
             opportunities through a reliable, people-first recruitment process.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
 
             return (
-              <MagneticCard
+              <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.4 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.015 }}
-                glow
-                className="group rounded-[28px] border border-white/80 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,47,74,0.08)] backdrop-blur-xl transition hover:shadow-[0_30px_80px_rgba(15,47,74,0.14)]"
+                className="group rounded-[28px] border border-white/80 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,47,74,0.08)] backdrop-blur-xl transition hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(15,47,74,0.14)]"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <motion.div
-                    whileHover={{ rotate: -8, scale: 1.12 }}
-                    className="grid h-14 w-14 place-items-center rounded-2xl bg-[#e8f0ff] text-[#1b24f2] transition group-hover:scale-110"
-                  >
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#e8f0ff] text-[#1b24f2] transition group-hover:scale-110">
                     <Icon size={24} />
-                  </motion.div>
+                  </div>
 
                   <div className="flex items-center gap-1 rounded-full bg-[#eef7f2] px-3 py-1 text-xs font-bold text-[#238a72]">
                     <CheckCircle2 size={14} />
@@ -133,7 +107,7 @@ export default function Stats() {
                     className="h-2 rounded-full bg-gradient-to-r from-[#12324f] to-[#238a72]"
                   />
                 </div>
-              </MagneticCard>
+              </motion.div>
             );
           })}
         </div>
