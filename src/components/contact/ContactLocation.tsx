@@ -47,30 +47,44 @@ export default function ContactLocation() {
           </div>
         </Reveal>
 
-        <Reveal direction="right" className="min-h-[360px]">
-          <div className="relative flex h-full min-h-[360px] items-center justify-center overflow-hidden bg-[#102A43] p-8 text-white">
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage:
-                  "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
-                backgroundSize: "34px 34px",
-              }}
-            />
-            <div className="absolute left-[12%] top-[30%] h-px w-[76%] rotate-12 bg-[#6EE7D8]/35" />
-            <div className="absolute left-[18%] top-[62%] h-px w-[64%] -rotate-12 bg-white/20" />
-            <div className="absolute left-1/2 top-[18%] h-[62%] w-px -translate-x-1/2 bg-white/[0.18]" />
+        <Reveal direction="right" className="min-h-[420px]">
+  <div className="relative h-full overflow-hidden rounded-r-[30px] bg-[#102A43]">
+    {/* Top Badge */}
+    <div className="absolute left-6 top-6 z-20 rounded-full bg-white/95 px-4 py-2 shadow-lg backdrop-blur">
+      <div className="flex items-center gap-2">
+        <MapPin size={18} className="text-[#238A72]" />
+        <span className="text-sm font-bold text-[#102A43]">
+          Caliber Tech LLC
+        </span>
+      </div>
+    </div>
 
-            <div className="relative max-w-sm rounded-[24px] border border-white/15 bg-white/10 p-6 text-center backdrop-blur">
-              <MapPin className="mx-auto text-[#6EE7D8]" size={34} />
-              <h3 className="mt-5 text-2xl font-black">Atlanta, GA</h3>
-              <p className="mt-3 text-sm leading-7 text-white/70">
-                A clear contact destination for staffing support, consultant
-                questions, and product quote coordination.
-              </p>
-            </div>
-          </div>
-        </Reveal>
+    {/* Live Google Map */}
+    <iframe
+      src="https://www.google.com/maps?q=6595+Roswell+Road+Suite+G2201+Atlanta+GA+30328&output=embed"
+      width="100%"
+      height="100%"
+      loading="lazy"
+      allowFullScreen
+      referrerPolicy="no-referrer-when-downgrade"
+      className="absolute inset-0 h-full w-full border-0"
+    />
+
+    {/* Bottom Glass Card */}
+    <div className="absolute bottom-6 left-6 right-6 z-20 rounded-[22px]  p-5 ">
+    
+      <a
+        href="https://maps.google.com/?q=6595+Roswell+Road+Suite+G2201+Atlanta+GA+30328"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#102A43] px-5 py-3 text-sm font-bold text-white transition hover"
+      >
+        <MapPin size={16} />
+        Open in Google Maps
+      </a>
+    </div>
+  </div>
+</Reveal>
       </div>
     </PageSection>
   );
