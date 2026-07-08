@@ -31,7 +31,7 @@ export default function ContractsHero() {
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/request-quote"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#1B24F2] px-8 py-4 font-bold text-white shadow-xl shadow-blue-200 transition hover:-translate-y-1"
+                className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#102A43] px-8 py-4 font-bold text-white shadow-xl shadow-blue-200 transition hover:-translate-y-1"
               >
                 Request Talent
                 <ArrowRight size={18} />

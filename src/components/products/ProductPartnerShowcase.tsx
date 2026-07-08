@@ -46,7 +46,7 @@ export default function ProductPartnerShowcase() {
 
                     <Link
                       href="/request-quote"
-                      className="mt-10 inline-flex bg-[#102A43] text-white rounded-xl px-10 py-5 text-sm font-black uppercase tracking-[0.35em] text-black transition hover:bg-[#358b25]"
+                      className="mt-10 inline-flex bg-[#102A43] text-white rounded-xl px-10 py-5 text-sm font-black uppercase tracking-[0.35em] text-black transition hover"
                     >
                       Request For Quote
                     </Link>

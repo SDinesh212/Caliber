@@ -61,12 +61,12 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                +1 (555) 123-4567
+                +1 469 227 0797
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail size={18} />
-                contact@callibertech.com
+                hr@calibertechllc.com
               </div>
 
             </div>
