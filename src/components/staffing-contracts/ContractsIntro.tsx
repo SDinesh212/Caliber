@@ -7,10 +7,10 @@ import { contractDetails } from "./contractsData";
 
 export default function ContractsIntro() {
   return (
-    <PageSection className="bg-[#F8FBFF]">
-      <div className="grid gap-10 lg:grid-cols-[1fr_420px]">
+    <PageSection className="bg-[#f8fbff]">
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_420px]">
         <Reveal>
-          <div className="rounded-[32px] border border-[#E4EAF2] bg-white p-8 shadow-[0_20px_70px_rgba(15,47,74,0.08)]">
+          <div className="premium-card rounded-[32px] border border-[#E4EAF2] bg-white p-8 shadow-[0_20px_70px_rgba(15,47,74,0.08)]">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-[#238A72]">
               Introduction
             </p>
@@ -45,7 +45,7 @@ export default function ContractsIntro() {
         </Reveal>
 
         <Reveal direction="right">
-          <div className="rounded-[32px] bg-[#102A43] p-7 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] lg:sticky lg:top-28">
+          <div className="premium-card premium-orbit-bg rounded-[32px] bg-[#102A43] p-7 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] lg:sticky lg:top-28">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-[#6EE7D8]">
               Contract Details
             </p>
@@ -57,7 +57,7 @@ export default function ContractsIntro() {
                 return (
                   <div
                     key={item.label}
-                    className="rounded-2xl border border-white/10 bg-white/[0.08] p-4"
+                    className="premium-card premium-depth rounded-2xl border border-white/10 bg-white/[0.08] p-4"
                   >
                     <div className="flex items-center gap-3">
                       <Icon size={18} className="text-[#6EE7D8]" />

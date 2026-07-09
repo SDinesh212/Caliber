@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ShieldCheck } from "lucide-react";
+import { FileUp, Mail, RefreshCw, Send, ShieldCheck, User } from "lucide-react";
 import {
   fadeUp,
   inViewViewport,
@@ -10,7 +10,7 @@ import {
 
 export default function NewsletterSection() {
   return (
-    <section id="resources" className="scroll-mt-28 bg-white px-5 py-10">
+    <section id="newsletter" className="scroll-mt-28 bg-white px-5 py-10">
       <motion.div
         variants={fadeUp}
         initial="hidden"
@@ -59,57 +59,102 @@ export default function NewsletterSection() {
 
           <motion.form
             id="contact"
+            onSubmit={(event) => event.preventDefault()}
+            encType="multipart/form-data"
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={inViewViewport}
             transition={{ duration: 0.62 }}
-            className="relative scroll-mt-28"
+            className="relative scroll-mt-28 rounded-[24px] border border-[#D7E4F3] bg-white/90 p-5 shadow-[0_18px_45px_rgba(15,47,74,0.08)] backdrop-blur md:p-6"
           >
-            <label className="mb-4 block text-sm font-black text-black">
-              Email*
-            </label>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="block">
+                <span className="mb-3 block text-sm font-black text-black">
+                  Name*
+                </span>
+                <div className="premium-focus-field flex h-14 items-center gap-3 rounded-2xl border border-[#D0D5DD] bg-white px-4">
+                  <User size={19} className="text-[#1B63FF]" />
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your full name"
+                    className="w-full bg-transparent text-base text-[#12324F] outline-none placeholder:text-[#98A2B3]"
+                  />
+                </div>
+              </label>
 
-            <div className="flex rounded-full border-2 border-[#1B63FF] bg-white p-2 shadow-sm">
-              <div className="flex flex-1 items-center gap-3 px-4">
-                <motion.span
-                  animate={{ rotate: [0, -8, 8, 0], scale: [1, 1.05, 1] }}
-                  transition={{
-                    duration: 3.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="grid h-10 w-10 place-items-center rounded-full bg-[#EAF2FF] text-[#1B63FF]"
-                >
-                  <Mail size={20} />
-                </motion.span>
-
-                <input
-                  type="email"
-                  placeholder="Enter your Email here..."
-                  className="w-full bg-transparent text-base text-[#12324F] outline-none placeholder:text-[#98A2B3]"
-                />
-              </div>
-
-              <button
-                type="button"
-                className="animated-sheen rounded-full bg-[#1B63FF] px-9 py-4 text-sm font-black uppercase text-white transition hover:bg-[#123FE8] cursor-pointer "
-              >
-                Submit
-              </button>
+              <label className="block">
+                <span className="mb-3 block text-sm font-black text-black">
+                  Email*
+                </span>
+                <div className="premium-focus-field flex h-14 items-center gap-3 rounded-2xl border border-[#D0D5DD] bg-white px-4">
+                  <motion.span
+                    animate={{ rotate: [0, -8, 8, 0], scale: [1, 1.05, 1] }}
+                    transition={{
+                      duration: 3.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="text-[#1B63FF]"
+                  >
+                    <Mail size={19} />
+                  </motion.span>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@company.com"
+                    className="w-full bg-transparent text-base text-[#12324F] outline-none placeholder:text-[#98A2B3]"
+                  />
+                </div>
+              </label>
             </div>
+
+            <label className="mt-4 block">
+              <span className="mb-3 block text-sm font-black text-black">
+                Resume*
+              </span>
+              <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-[#A9C7FF] bg-[#F8FBFF] px-4 py-4 sm:flex-row sm:items-center">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#EAF2FF] text-[#1B63FF]">
+                  <FileUp size={20} />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-bold text-[#12324F]">
+                    Upload resume
+                  </p>
+                  <input
+                    name="resume"
+                    type="file"
+                    required
+                    accept=".pdf,.doc,.docx"
+                    className="mt-2 w-full text-sm text-[#475467] file:mr-4 file:cursor-pointer file:rounded-full file:border-0 file:bg-[#EAF2FF] file:px-4 file:py-2 file:text-sm file:font-bold file:text-[#1B63FF] hover:file:bg-[#DCEBFF]"
+                  />
+                </div>
+              </div>
+            </label>
 
             <motion.div
               whileHover={{ y: -3, scale: 1.01 }}
-              className="mt-6 inline-flex items-center gap-3 bg-[#1A73E8] px-5 py-4 text-white shadow-md"
+              className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
             >
-              <ShieldCheck size={22} />
-              <span className="text-sm font-semibold">
-                protected by reCAPTCHA
-              </span>
-
-              <div className="ml-4 grid h-12 w-12 place-items-center bg-white text-[#1A73E8]">
-                ↻
+              <div className="inline-flex items-center gap-3 rounded-2xl bg-[#1A73E8] px-4 py-3 text-white shadow-md">
+                <ShieldCheck size={21} />
+                <span className="text-sm font-semibold">
+                  protected by reCAPTCHA
+                </span>
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#1A73E8]">
+                  <RefreshCw size={18} />
+                </span>
               </div>
+
+              <button
+                type="submit"
+                className="animated-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1B63FF] px-8 py-3 text-sm font-black uppercase text-white transition hover:bg-[#123FE8]"
+              >
+                Send
+                <Send size={17} />
+              </button>
             </motion.div>
           </motion.form>
         </div>

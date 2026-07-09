@@ -8,7 +8,7 @@ type AwardCardProps = {
 
 export default function AwardCard({ title, text, icon: Icon }: AwardCardProps) {
   return (
-    <div className="rounded-[26px] border border-[#E4EAF2] bg-[#F8FBFF] p-6">
+    <div className="premium-card premium-depth rounded-[26px] border border-[#E4EAF2] bg-[#F8FBFF] p-6">
       <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#EAF2FF] text-[#1B24F2]">
         <Icon size={22} />
       </div>

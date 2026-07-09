@@ -16,7 +16,7 @@ export default function Field({
         type={type}
         aria-label={label.replace("*", "")}
         placeholder={placeholder}
-        className="mt-3 h-14 w-full rounded-2xl border border-[#D0D5DD] bg-white px-4 text-[#102A43] outline-none transition focus:border-[#1B63FF]"
+        className="premium-focus-field mt-3 h-14 w-full rounded-2xl border border-[#D0D5DD] bg-white px-4 text-[#102A43] outline-none"
       />
     </label>
   );

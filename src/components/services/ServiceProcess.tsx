@@ -4,8 +4,8 @@ import { process } from "./servicesData";
 
 export default function ServiceProcess() {
   return (
-    <PageSection className="bg-[#F8FBFF]">
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+    <PageSection className="bg-[#f8fbff]">
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <Reveal>
           <p className="text-sm font-black uppercase tracking-[0.24em] text-[#238A72]">
             How we deliver
@@ -25,7 +25,7 @@ export default function ServiceProcess() {
 
             return (
               <Reveal key={step.title} delay={index * 0.08}>
-                <div className="h-full rounded-[24px] border border-[#E4EAF2] bg-white p-6 shadow-[0_18px_50px_rgba(15,47,74,0.07)]">
+                <div className="premium-card premium-depth h-full rounded-[24px] border border-[#E4EAF2] bg-white p-6 shadow-[0_18px_50px_rgba(15,47,74,0.07)]">
                   <div className="flex items-center justify-between">
                     <span className="text-5xl font-black text-[#E4EAF2]">
                       0{index + 1}

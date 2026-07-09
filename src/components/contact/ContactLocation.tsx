@@ -12,7 +12,7 @@ export default function ContactLocation() {
     <PageSection>
       <div
         id="location"
-        className="grid gap-8 overflow-hidden rounded-[30px] border border-[#E4EAF2] bg-white shadow-[0_24px_80px_rgba(15,47,74,0.12)] lg:grid-cols-[1fr_1.1fr]"
+        className="premium-card grid gap-8 overflow-hidden rounded-[30px] border border-[#E4EAF2] bg-white shadow-[0_24px_80px_rgba(15,47,74,0.12)] lg:grid-cols-[1fr_1.1fr]"
       >
         <Reveal className="p-8 md:p-10">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#EAF2FF] px-4 py-2 text-sm font-black text-[#1B63FF]">
@@ -48,7 +48,7 @@ export default function ContactLocation() {
         </Reveal>
 
         <Reveal direction="right" className="min-h-[420px]">
-  <div className="relative h-full overflow-hidden rounded-r-[30px] bg-[#102A43]">
+  <div className="premium-map-frame relative h-full overflow-hidden rounded-r-[30px] bg-[#102A43]">
     {/* Top Badge */}
     <div className="absolute left-6 top-6 z-20 rounded-full bg-white/95 px-4 py-2 shadow-lg backdrop-blur">
       <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ export default function ContactLocation() {
         href="https://maps.google.com/?q=6595+Roswell+Road+Suite+G2201+Atlanta+GA+30328"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#102A43] px-5 py-3 text-sm font-bold text-white transition hover"
+        className="premium-sheen premium-depth mt-5 inline-flex items-center gap-2 rounded-xl bg-[#102A43] px-5 py-3 text-sm font-bold text-white"
       >
         <MapPin size={16} />
         Open in Google Maps

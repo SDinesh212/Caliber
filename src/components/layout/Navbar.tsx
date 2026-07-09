@@ -1,16 +1,65 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import BrandLogo from "@/components/layout/BrandLogo";
 import { moreDropdownLinks, siteNavLinks } from "@/constants/site";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const isActiveHref = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const moreActive = moreDropdownLinks.some(
+    (item) => !item.external && isActiveHref(item.href),
+  );
+
+  const desktopNavClass = (active: boolean) =>
+    [
+      "relative flex items-center gap-1.5 text-[14px] font-semibold transition after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:rounded-full after:bg-[#1B63FF] after:transition-all after:duration-300",
+      active
+        ? "text-[#1B24F2] after:w-full"
+        : "text-black after:w-0 hover:text-[#1B24F2] hover:after:w-full",
+    ].join(" ");
+
+  const mobileNavClass = (active: boolean) =>
+    [
+      "flex items-center justify-between rounded-2xl px-3 py-2 font-semibold transition",
+      active
+        ? "bg-[#EEF5FF] text-[#1B24F2]"
+        : "text-black hover:bg-[#F4F7FF] hover:text-[#1B24F2]",
+    ].join(" ");
+
+  const handlePageLinkClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+    closeMenu?: () => void,
+  ) => {
+    closeMenu?.();
+
+    if (href.includes("#") || href.startsWith("http")) {
+      return;
+    }
+
+    if (href === pathname) {
+      event.preventDefault();
+      window.history.replaceState(null, "", href);
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +103,7 @@ export default function Navbar() {
                       aria-expanded={moreOpen}
                       aria-haspopup="menu"
                       onClick={() => setMoreOpen(!moreOpen)}
-                      className="flex items-center gap-1.5 text-[14px] font-semibold text-black transition hover:text-[#1B24F2]"
+                      className={desktopNavClass(moreActive || moreOpen)}
                     >
                       {link.label}
                       <ChevronDown
@@ -78,8 +127,17 @@ export default function Navbar() {
                               href={item.href}
                               target={item.external ? "_blank" : undefined}
                               rel={item.external ? "noreferrer" : undefined}
-                              onClick={() => setMoreOpen(false)}
-                              className="block rounded-xl px-4 py-3 text-sm font-semibold text-[#102A43] transition hover:bg-[#F4F7FF] hover:text-[#1B24F2]"
+                              onClick={(event) =>
+                                handlePageLinkClick(event, item.href, () =>
+                                  setMoreOpen(false),
+                                )
+                              }
+                              className={[
+                                "block rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-[#F4F7FF] hover:text-[#1B24F2]",
+                                !item.external && isActiveHref(item.href)
+                                  ? "bg-[#EEF5FF] text-[#1B24F2]"
+                                  : "text-[#102A43]",
+                              ].join(" ")}
                             >
                               {item.title}
                             </Link>
@@ -91,7 +149,10 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="flex items-center gap-1.5 text-[14px] font-semibold text-black transition hover:text-[#1B24F2]"
+                    onClick={(event) =>
+                      handlePageLinkClick(event, link.href)
+                    }
+                    className={desktopNavClass(isActiveHref(link.href))}
                   >
                     {link.label}
 
@@ -107,13 +168,19 @@ export default function Navbar() {
         <div className="hidden shrink-0 items-center gap-3 xl:flex">
           <Link
             href="/jobs"
-            className="inline-flex items-center justify-center gap-3 rounded-xl border border-[#D8C7A8] bg-white px-8 py-4 font-bold text-[#102A43] shadow-sm transition hover:-translate-y-1"
+            onClick={(event) => handlePageLinkClick(event, "/jobs")}
+            className={[
+              "inline-flex items-center justify-center gap-3 rounded-xl border bg-white px-8 py-4 font-bold shadow-sm transition hover:-translate-y-1",
+              isActiveHref("/jobs")
+                ? "border-[#1B63FF] text-[#1B24F2]"
+                : "border-[#D8C7A8] text-[#102A43]",
+            ].join(" ")}
           >
             Apply For Jobs
           </Link>
 
           <Link
-            href="/#contact"
+            href="/#newsletter"
             className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#102A43] px-8 py-4 font-bold text-white shadow-xl shadow-[#102A43]/20 transition hover:-translate-y-1 hover:bg-[#071F36]"
           >
             Start Hiring
@@ -155,7 +222,7 @@ export default function Navbar() {
                         type="button"
                         aria-expanded={moreOpen}
                         onClick={() => setMoreOpen(!moreOpen)}
-                        className="flex w-full items-center justify-between font-semibold text-black"
+                        className={mobileNavClass(moreActive || moreOpen)}
                       >
                         {link.label}
                         <ChevronDown
@@ -179,11 +246,18 @@ export default function Navbar() {
                                   href={item.href}
                                   target={item.external ? "_blank" : undefined}
                                   rel={item.external ? "noreferrer" : undefined}
-                                  onClick={() => {
-                                    setMobileOpen(false);
-                                    setMoreOpen(false);
-                                  }}
-                                  className="block text-sm font-semibold text-[#102A43]"
+                                  onClick={(event) =>
+                                    handlePageLinkClick(event, item.href, () => {
+                                      setMobileOpen(false);
+                                      setMoreOpen(false);
+                                    })
+                                  }
+                                  className={[
+                                    "block rounded-xl px-3 py-2 text-sm font-semibold transition",
+                                    !item.external && isActiveHref(item.href)
+                                      ? "bg-white text-[#1B24F2]"
+                                      : "text-[#102A43] hover:bg-white",
+                                  ].join(" ")}
                                 >
                                   {item.title}
                                 </Link>
@@ -196,8 +270,12 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-between font-semibold text-black"
+                      onClick={(event) =>
+                        handlePageLinkClick(event, link.href, () =>
+                          setMobileOpen(false),
+                        )
+                      }
+                      className={mobileNavClass(isActiveHref(link.href))}
                     >
                       {link.label}
                       {link.icon && <ChevronRight size={16} />}
@@ -208,14 +286,23 @@ export default function Navbar() {
 
               <Link
                 href="/jobs"
-                onClick={() => setMobileOpen(false)}
-                className="rounded-full border-2 border-[#1B24F2] px-5 py-3 text-center text-sm font-bold uppercase text-[#1B24F2]"
+                onClick={(event) =>
+                  handlePageLinkClick(event, "/jobs", () =>
+                    setMobileOpen(false),
+                  )
+                }
+                className={[
+                  "rounded-full border-2 px-5 py-3 text-center text-sm font-bold uppercase transition",
+                  isActiveHref("/jobs")
+                    ? "border-[#1B24F2] bg-[#EEF5FF] text-[#1B24F2]"
+                    : "border-[#1B24F2] text-[#1B24F2]",
+                ].join(" ")}
               >
                 Apply For Jobs
               </Link>
 
               <Link
-                href="/#contact"
+                href="/#newsletter"
                 onClick={() => setMobileOpen(false)}
                 className="rounded-full bg-[#1B24F2] px-5 py-3 text-center text-sm font-bold uppercase text-white"
               >

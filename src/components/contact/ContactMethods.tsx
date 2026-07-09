@@ -15,7 +15,7 @@ export default function ContactMethods() {
             <Reveal key={method.title} delay={index * 0.08}>
               <Link
                 href={method.href}
-                className="group flex h-full flex-col rounded-[26px] border border-[#E4EAF2] bg-[#F8FBFF] p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)] transition hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(15,47,74,0.14)]"
+                className="premium-card premium-depth group flex h-full flex-col rounded-[26px] border border-[#E4EAF2] bg-[#F8FBFF] p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)]"
               >
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#EAF2FF] text-[#1B63FF]">
                   <Icon size={25} />

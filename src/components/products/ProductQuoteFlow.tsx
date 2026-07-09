@@ -5,8 +5,8 @@ import { quoteSteps } from "./productsData";
 
 export default function ProductQuoteFlow() {
   return (
-    <PageSection className="bg-[#F8FBFF]">
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <PageSection className="bg-[#f8fbff]">
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <Reveal>
           <p className="text-sm font-black uppercase tracking-[0.24em] text-[#238A72]">
             Quote Flow
@@ -22,12 +22,12 @@ export default function ProductQuoteFlow() {
         </Reveal>
 
         <Reveal direction="right">
-          <div className="rounded-[28px] bg-[#102A43] p-6 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-8">
+          <div className="premium-card premium-orbit-bg rounded-[28px] bg-[#102A43] p-6 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               {quoteSteps.map((step, index) => (
                 <div
                   key={step}
-                  className="rounded-2xl border border-white/10 bg-white/[0.08] p-5"
+                  className="premium-card premium-depth rounded-2xl border border-white/10 bg-white/[0.08] p-5"
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-3xl font-black text-white/25">
@@ -44,7 +44,7 @@ export default function ProductQuoteFlow() {
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#6EE7D8]/20 bg-[#6EE7D8]/10 p-5">
+            <div className="premium-card mt-6 rounded-2xl border border-[#6EE7D8]/20 bg-[#6EE7D8]/10 p-5">
               <p className="flex items-center gap-3 text-sm font-bold">
                 <ShieldCheck size={20} className="text-[#6EE7D8]" />
                 Partner-backed product sourcing with Caliber Tech guidance.

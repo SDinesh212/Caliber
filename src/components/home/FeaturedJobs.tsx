@@ -5,7 +5,6 @@ import { Briefcase, MapPin, Clock, Search } from "lucide-react";
 import {
   fadeUp,
   inViewViewport,
-  MagneticCard,
   staggerContainer,
 } from "@/components/animation/MotionPrimitives";
 
@@ -119,7 +118,7 @@ export default function FeaturedJobs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={inViewViewport}
           transition={{ duration: 0.55 }}
-          className="mt-12 grid gap-3 rounded-2xl border border-[#E4EAF2] bg-[#F8FBFF] p-3 md:grid-cols-[1.6fr_1fr_1fr_1fr_170px]"
+          className="featured-jobs-filter mt-12 grid gap-3 rounded-2xl border border-[#E4EAF2] bg-[#F8FBFF] p-3 md:grid-cols-[1.6fr_1fr_1fr_1fr_170px]"
         >
           <div className="relative">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#98A2B3]">
@@ -160,65 +159,65 @@ export default function FeaturedJobs() {
 
         <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {jobs.map((job, index) => (
-            <MagneticCard
+            <motion.div
               key={job.title}
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.25 }}
-              transition={{ delay: index * 0.06 }}
-              whileHover={{ y: -10, scale: 1.015 }}
-              glow
-              className="group rounded-[18px] border border-[#E4EAF2] bg-white p-5 shadow-[0_8px_24px_rgba(15,47,74,0.05)] transition-all duration-300 hover:shadow-[0_18px_45px_rgba(15,47,74,0.12)]"
+              transition={{ delay: index * 0.04, duration: 0.32 }}
+              className="h-full"
             >
-              <div className="flex items-start justify-between">
-                <div
-                  className={`grid h-11 w-11 place-items-center rounded-xl ${job.color}`}
-                >
-                  <Briefcase size={21} />
+              <div className="featured-job-card group flex h-full flex-col rounded-[18px] border border-[#E4EAF2] bg-white p-5 shadow-[0_8px_24px_rgba(15,47,74,0.05)]">
+                <div className="flex items-start justify-between">
+                  <div
+                    className={`grid h-11 w-11 place-items-center rounded-xl ${job.color}`}
+                  >
+                    <Briefcase size={21} />
+                  </div>
+
+                  <span className="rounded-full bg-[#EEF5FF] px-3 py-1 text-xs font-bold text-[#1B63FF]">
+                    Featured
+                  </span>
                 </div>
 
-                <span className="rounded-full bg-[#EEF5FF] px-3 py-1 text-xs font-bold text-[#1B63FF]">
-                  Featured
-                </span>
-              </div>
+                <h3 className="mt-5 text-base font-black text-[#12324F]">
+                  {job.title}
+                </h3>
 
-              <h3 className="mt-5 text-base font-black text-[#12324F]">
-                {job.title}
-              </h3>
+                <p className="mt-1 text-sm text-[#667085]">{job.company}</p>
 
-              <p className="mt-1 text-sm text-[#667085]">{job.company}</p>
+                <div className="mt-5 space-y-2 text-sm text-[#475467]">
+                  <p className="flex items-center gap-2">
+                    <MapPin size={15} />
+                    {job.location}
+                  </p>
 
-              <div className="mt-5 space-y-2 text-sm text-[#475467]">
-                <p className="flex items-center gap-2">
-                  <MapPin size={15} />
-                  {job.location}
-                </p>
+                  <p className="flex items-center gap-2">
+                    <Clock size={15} />
+                    {job.type}
+                  </p>
+                </div>
 
-                <p className="flex items-center gap-2">
-                  <Clock size={15} />
-                  {job.type}
-                </p>
-              </div>
-
-              <p className="mt-4 text-base font-black text-[#12324F]">
+                <p className="mt-auto pt-5 text-base font-black text-[#12324F]">
                   {job.salary}
-              </p>
+                </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {job.tags.map((tag, tagIndex) => (
-                  <motion.span
-                    key={tag}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: index * 0.04 + tagIndex * 0.04 }}
-                    className="rounded-full bg-[#F2F6FA] px-3 py-1 text-xs font-medium text-[#475467]"
-                  >
-                    {tag}
-                  </motion.span>
-                ))}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {job.tags.map((tag, tagIndex) => (
+                    <motion.span
+                      key={tag}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: false }}
+                      transition={{ delay: index * 0.04 + tagIndex * 0.04 }}
+                      className="rounded-full bg-[#F2F6FA] px-3 py-1 text-xs font-medium text-[#475467]"
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
-            </MagneticCard>
+            </motion.div>
           ))}
         </div>
       </div>

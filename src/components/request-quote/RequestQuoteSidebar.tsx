@@ -10,7 +10,7 @@ import { nextSteps } from "./requestQuoteData";
 export default function RequestQuoteSidebar() {
   return (
     <Reveal direction="right" className="lg:sticky lg:top-28">
-      <div className="rounded-[30px] bg-[#102A43] p-6 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-8">
+      <div className="premium-card premium-orbit-bg rounded-[30px] bg-[#102A43] p-6 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-8">
         <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black">
           <ShieldCheck size={17} className="text-[#6EE7D8]" />
           What happens next
@@ -23,7 +23,7 @@ export default function RequestQuoteSidebar() {
             return (
               <div
                 key={step.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.08] p-5"
+                className="premium-card premium-depth rounded-2xl border border-white/10 bg-white/[0.08] p-5"
               >
                 <div className="flex items-center justify-between">
                   <div className="grid h-11 w-11 place-items-center rounded-xl bg-white text-[#1B63FF]">
@@ -42,7 +42,7 @@ export default function RequestQuoteSidebar() {
           })}
         </div>
 
-        <div className="mt-6 rounded-2xl border border-[#6EE7D8]/20 bg-[#6EE7D8]/10 p-5">
+        <div className="premium-card mt-6 rounded-2xl border border-[#6EE7D8]/20 bg-[#6EE7D8]/10 p-5">
           <p className="flex items-center gap-3 text-sm font-bold">
             <CheckCircle2 size={20} className="text-[#6EE7D8]" />
             Clear request details help us respond with the right path faster.
@@ -50,7 +50,7 @@ export default function RequestQuoteSidebar() {
         </div>
       </div>
 
-      <div className="mt-6 rounded-[26px] border border-[#E4EAF2] bg-white p-6 shadow-[0_18px_50px_rgba(15,47,74,0.08)]">
+      <div className="premium-card premium-depth mt-6 rounded-[26px] border border-[#E4EAF2] bg-white p-6 shadow-[0_18px_50px_rgba(15,47,74,0.08)]">
         <h2 className="text-2xl font-black text-[#102A43]">
           Caliber Tech LLC
         </h2>

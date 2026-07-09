@@ -6,7 +6,7 @@ import PageSection from "@/components/ui/PageSection";
 export default function ProductsCta() {
   return (
     <PageSection>
-      <Reveal className="rounded-[28px] bg-gradient-to-br from-[#102A43] via-[#0F2F4A] to-[#071F36] p-8 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-10 lg:flex lg:items-center lg:justify-between">
+      <Reveal className="premium-card premium-orbit-bg rounded-[28px] bg-gradient-to-br from-[#102A43] via-[#0F2F4A] to-[#071F36] p-8 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] md:p-10 lg:flex lg:items-center lg:justify-between">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.18em] text-white/55">
             Ready to source technology?
@@ -18,7 +18,7 @@ export default function ProductsCta() {
 
         <Link
           href="/request-quote"
-          className="animated-sheen mt-7 inline-flex items-center gap-3 rounded-xl bg-white px-7 py-4 font-bold text-[#102A43] transition hover:-translate-y-1 lg:mt-0"
+          className="premium-sheen premium-depth mt-7 inline-flex items-center gap-3 rounded-xl bg-white px-7 py-4 font-bold text-[#102A43] lg:mt-0"
         >
           Request For Quote
           <ArrowRight size={18} />

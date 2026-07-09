@@ -10,7 +10,7 @@ export default function OpenJobFacts() {
         return (
           <div
             key={fact.label}
-            className="rounded-[24px] border border-[#E4EAF2] bg-[#F8FBFF] p-5 shadow-[0_14px_40px_rgba(15,47,74,0.06)]"
+            className="premium-card premium-depth rounded-[24px] border border-[#E4EAF2] bg-[#F8FBFF] p-5 shadow-[0_14px_40px_rgba(15,47,74,0.06)]"
           >
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#EAF2FF] text-[#1B63FF]">
               <Icon size={22} />

@@ -24,7 +24,7 @@ export default function ProductPartnerShowcase() {
                   }`}
                 >
                   <div className="flex min-h-[260px] items-center justify-center">
-                    <div className="relative h-[220px] w-full max-w-[560px]">
+                    <div className="premium-card premium-depth relative h-[220px] w-full max-w-[560px] rounded-[28px] border border-[#E4EAF2] bg-white p-6 shadow-[0_18px_50px_rgba(15,47,74,0.08)]">
                       <Image
                         src={product.image}
                         alt={`${product.partner} logo`}
@@ -46,7 +46,7 @@ export default function ProductPartnerShowcase() {
 
                     <Link
                       href="/request-quote"
-                      className="mt-10 inline-flex bg-[#102A43] text-white rounded-xl px-10 py-5 text-sm font-black uppercase tracking-[0.35em] text-black transition hover"
+                      className="premium-sheen premium-depth mt-10 inline-flex rounded-xl bg-[#102A43] px-10 py-5 text-sm font-black uppercase tracking-[0.35em] text-white"
                     >
                       Request For Quote
                     </Link>

@@ -5,8 +5,8 @@ import { faqs } from "./contactData";
 
 export default function ContactFaqs() {
   return (
-    <PageSection className="bg-[#F8FBFF]">
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <PageSection className="bg-[#f8fbff]">
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <Reveal>
           <p className="text-sm font-black uppercase tracking-[0.24em] text-[#238A72]">
             Frequently Asked Questions
@@ -25,7 +25,7 @@ export default function ContactFaqs() {
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-[22px] border border-[#E4EAF2] bg-white p-5 shadow-[0_14px_40px_rgba(15,47,74,0.06)]"
+                className="premium-card premium-accordion group rounded-[22px] border border-[#E4EAF2] bg-white p-5 shadow-[0_14px_40px_rgba(15,47,74,0.06)]"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-black text-[#102A43]">
                   <span className="flex items-center gap-3">

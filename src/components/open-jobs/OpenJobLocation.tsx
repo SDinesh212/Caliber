@@ -3,7 +3,7 @@ import Reveal from "@/components/animation/Reveal";
 
 export default function OpenJobLocation() {
   return (
-    <Reveal className="mt-8 rounded-[30px] border border-[#E4EAF2] bg-[#F8FBFF] p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)] md:p-9">
+    <Reveal className="premium-card premium-depth mt-8 rounded-[30px] border border-[#E4EAF2] bg-[#F8FBFF] p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)] md:p-9">
       <p className="text-sm font-black uppercase tracking-[0.24em] text-[#1B63FF]">
         Location
       </p>

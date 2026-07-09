@@ -7,7 +7,7 @@ export default function ContractsCta() {
   return (
     <PageSection>
       <Reveal>
-        <div className="overflow-hidden rounded-[34px] bg-gradient-to-br from-[#102A43] to-[#071F36] p-8 text-white shadow-[0_30px_90px_rgba(15,47,74,0.2)] md:p-12 lg:flex lg:items-center lg:justify-between">
+        <div className="premium-card premium-orbit-bg overflow-hidden rounded-[34px] bg-gradient-to-br from-[#102A43] to-[#071F36] p-8 text-white shadow-[0_30px_90px_rgba(15,47,74,0.2)] md:p-12 lg:flex lg:items-center lg:justify-between">
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-bold">
               <Handshake size={16} />
@@ -27,7 +27,7 @@ export default function ContractsCta() {
 
           <Link
             href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-bold text-[#102A43] transition hover:-translate-y-1 lg:mt-0"
+            className="premium-sheen premium-depth mt-8 inline-flex items-center gap-3 rounded-xl bg-white px-8 py-4 font-bold text-[#102A43] lg:mt-0"
           >
             Contact Us
             <ArrowRight size={18} />

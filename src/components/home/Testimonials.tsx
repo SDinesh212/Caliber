@@ -178,12 +178,6 @@ export default function Testimonials() {
                   </p>
                 </div>
 
-                <div className="text-right">
-                  <p className="text-4xl font-black text-[#FFB199]">G2</p>
-                  <p className="mt-2 text-xs font-bold uppercase tracking-wider text-white/60">
-                    Leader
-                  </p>
-                </div>
               </div>
 
               <div>

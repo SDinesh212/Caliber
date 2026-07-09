@@ -8,9 +8,9 @@ export default function RequestQuoteForm() {
     <Reveal>
       <form
         id="quote-form"
-        className="rounded-[30px] border border-[#E4EAF2] bg-[#F8FBFF] p-5 shadow-[0_24px_80px_rgba(15,47,74,0.10)] md:p-8"
+        className="premium-card rounded-[30px] border border-[#E4EAF2] bg-[#f8fbff] p-5 shadow-[0_24px_80px_rgba(15,47,74,0.10)] md:p-8"
       >
-        <div className="rounded-[24px] bg-white p-5 md:p-7">
+        <div className="premium-card relative z-10 rounded-[24px] bg-white p-5 md:p-7">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#1B63FF]">
             Contact details
           </p>
@@ -36,7 +36,7 @@ export default function RequestQuoteForm() {
             {interestOptions.map((option) => (
               <label
                 key={option}
-                className="cursor-pointer rounded-full border border-[#D0D5DD] bg-[#F8FBFF] px-4 py-2 text-sm font-bold text-[#475467] transition hover:border-[#1B63FF] hover:text-[#1B63FF]"
+                className="premium-chip cursor-pointer rounded-full border border-[#D0D5DD] bg-[#F8FBFF] px-4 py-2 text-sm font-bold text-[#475467] hover:border-[#1B63FF] hover:text-[#1B63FF]"
               >
                 <input type="checkbox" className="sr-only" />
                 {option}
@@ -53,7 +53,7 @@ export default function RequestQuoteForm() {
                 rows={5}
                 aria-label="Request details"
                 placeholder="Roles, skills, product brand, quantity, timeline, location, or any other notes..."
-                className="mt-3 w-full resize-none rounded-2xl border border-[#D0D5DD] bg-white p-4 text-[#102A43] outline-none transition focus:border-[#1B63FF]"
+                className="premium-focus-field mt-3 w-full resize-none rounded-2xl border border-[#D0D5DD] bg-white p-4 text-[#102A43] outline-none"
               />
             </label>
 
@@ -65,7 +65,7 @@ export default function RequestQuoteForm() {
                 rows={4}
                 aria-label="Other notes"
                 placeholder="Any procurement, hiring, compliance, or preferred contact details..."
-                className="mt-3 w-full resize-none rounded-2xl border border-[#D0D5DD] bg-white p-4 text-[#102A43] outline-none transition focus:border-[#1B63FF]"
+                className="premium-focus-field mt-3 w-full resize-none rounded-2xl border border-[#D0D5DD] bg-white p-4 text-[#102A43] outline-none"
               />
             </label>
           </div>
@@ -78,7 +78,7 @@ export default function RequestQuoteForm() {
 
             <button
               type="button"
-              className="animated-sheen inline-flex items-center justify-center gap-3 rounded-xl bg-[#102A43] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-[#102A43]/20 transition hover:-translate-y-1 hover:bg-[#071F36]"
+              className="premium-sheen premium-depth inline-flex items-center justify-center gap-3 rounded-xl bg-[#102A43] px-8 py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-[#102A43]/20 hover:bg-[#071F36]"
             >
               Send
               <Send size={17} />

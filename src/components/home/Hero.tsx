@@ -54,7 +54,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="#contact"
+              href="#newsletter"
               className="inline-flex items-center justify-center gap-3 rounded-xl border border-[#D8C7A8] bg-white px-8 py-4 font-bold text-[#102A43] shadow-sm transition hover:-translate-y-1"
             >
               Hire Talent <ArrowRight size={18} />

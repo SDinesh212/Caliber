@@ -40,6 +40,229 @@ body {
   outline-offset: 3px;
 }
 
+.premium-grid-bg {
+  overflow: hidden;
+  position: relative;
+}
+
+.premium-grid-bg::before {
+  background-image:
+    linear-gradient(rgba(27, 99, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 99, 255, 0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  content: "";
+  inset: 0;
+  mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.premium-orbit-bg {
+  overflow: hidden;
+  position: relative;
+}
+
+.premium-orbit-bg::after {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(27, 99, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(35, 138, 114, 0.14), transparent 30%),
+    radial-gradient(circle at 72% 88%, rgba(216, 199, 168, 0.28), transparent 28%);
+  content: "";
+  inset: -20%;
+  opacity: 0.8;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.premium-card {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.premium-card::before {
+  background: linear-gradient(
+    120deg,
+    rgba(27, 99, 255, 0.64),
+    rgba(35, 138, 114, 0.52),
+    rgba(216, 199, 168, 0.72),
+    rgba(27, 99, 255, 0.64)
+  );
+  background-size: 220% 220%;
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  opacity: 0;
+  padding: 1px;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 260ms ease;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 2;
+}
+
+.premium-card::after {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(27, 99, 255, 0.15),
+    transparent 45%
+  );
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 260ms ease;
+  z-index: 1;
+}
+
+.premium-card:hover::before,
+.premium-card:hover::after,
+.premium-card:focus-within::before,
+.premium-card:focus-within::after {
+  opacity: 1;
+}
+
+.premium-depth {
+  transition:
+    box-shadow 360ms ease,
+    transform 360ms ease,
+    border-color 360ms ease;
+}
+
+.premium-depth:hover,
+.premium-depth:focus-within {
+  border-color: rgba(27, 99, 255, 0.32);
+  box-shadow: 0 34px 90px rgba(15, 47, 74, 0.16);
+  transform: translate3d(0, -8px, 0) scale(1.01);
+}
+
+.premium-sheen {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.premium-sheen::after {
+  background: linear-gradient(
+    110deg,
+    transparent 16%,
+    rgba(255, 255, 255, 0.34) 48%,
+    transparent 78%
+  );
+  content: "";
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-120%) skewX(-18deg);
+}
+
+.premium-focus-field {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.premium-focus-field:focus,
+.premium-focus-field:focus-within {
+  border-color: rgba(27, 99, 255, 0.72);
+  box-shadow: 0 14px 35px rgba(27, 99, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.featured-jobs-filter {
+  transition:
+    box-shadow 180ms ease-out,
+    transform 180ms ease-out;
+}
+
+.featured-jobs-filter:hover,
+.featured-jobs-filter:focus-within {
+  box-shadow: 0 18px 45px rgba(15, 47, 74, 0.09);
+  transform: translateY(-2px);
+}
+
+.featured-job-card {
+  transform: translateZ(0);
+  transition:
+    border-color 160ms ease-out,
+    box-shadow 160ms ease-out,
+    transform 160ms ease-out;
+  will-change: transform;
+}
+
+.featured-job-card:hover,
+.featured-job-card:focus-within {
+  border-color: #d0d5dd;
+  box-shadow: 0 20px 48px rgba(15, 47, 74, 0.12);
+  transform: translate3d(0, -8px, 0) scale(1.01);
+}
+
+.premium-chip {
+  transition:
+    background-color 260ms ease,
+    box-shadow 260ms ease,
+    color 260ms ease,
+    transform 260ms ease;
+}
+
+.premium-chip:hover,
+.premium-chip:focus-within {
+  box-shadow: 0 12px 28px rgba(15, 47, 74, 0.1);
+  transform: translateY(-3px);
+}
+
+.premium-map-frame {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.premium-map-frame::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(110, 231, 216, 0.22),
+    transparent
+  );
+  content: "";
+  height: 100%;
+  left: -60%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: skewX(-18deg);
+  width: 42%;
+  z-index: 10;
+}
+
+.premium-accordion {
+  transition:
+    box-shadow 260ms ease,
+    transform 260ms ease,
+    border-color 260ms ease;
+}
+
+.premium-accordion[open] {
+  border-color: rgba(27, 99, 255, 0.26);
+  box-shadow: 0 24px 60px rgba(15, 47, 74, 0.1);
+  transform: translateY(-3px);
+}
+
+.premium-accordion p {
+  animation: details-rise 280ms ease both;
+}
+
 .animated-sheen {
   isolation: isolate;
   overflow: hidden;
@@ -80,6 +303,27 @@ body {
 
   .slow-pulse-ring {
     animation: pulse-ring 4.8s ease-in-out infinite;
+  }
+
+  .premium-grid-bg::before {
+    animation: grid-drift 32s linear infinite;
+  }
+
+  .premium-orbit-bg::after {
+    animation: premium-orbit 16s ease-in-out infinite alternate;
+  }
+
+  .premium-card::before {
+    animation: premium-border-flow 4.8s linear infinite;
+  }
+
+  .premium-sheen:hover::after,
+  .premium-sheen:focus-visible::after {
+    animation: sheen-sweep 0.82s ease;
+  }
+
+  .premium-map-frame::before {
+    animation: map-scan 5.6s ease-in-out infinite;
   }
 }
 
@@ -149,5 +393,50 @@ body {
   50% {
     opacity: 0.35;
     transform: scale(1.08);
+  }
+}
+
+@keyframes premium-border-flow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes premium-orbit {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+  }
+}
+
+@keyframes details-rise {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes map-scan {
+  0%,
+  36% {
+    left: -60%;
+    opacity: 0;
+  }
+  48% {
+    opacity: 1;
+  }
+  78%,
+  100% {
+    left: 118%;
+    opacity: 0;
   }
 }

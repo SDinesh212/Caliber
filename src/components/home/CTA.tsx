@@ -61,7 +61,7 @@ export default function CTASection() {
               className="mt-9 flex flex-col gap-4 sm:flex-row"
             >
               <Link
-                href="#contact"
+                href="#newsletter"
                 className="animated-sheen inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 font-bold text-[#082846] transition hover:-translate-y-1"
               >
                 Hire Talent <ArrowRight size={18} />

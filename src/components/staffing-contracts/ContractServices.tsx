@@ -24,7 +24,7 @@ export default function ContractServices() {
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {staffingServices.map((item, index) => (
           <Reveal key={item} delay={index * 0.06}>
-            <div className="h-full rounded-[28px] border border-[#E4EAF2] bg-white p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)] transition hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(15,47,74,0.14)]">
+            <div className="premium-card premium-depth h-full rounded-[28px] border border-[#E4EAF2] bg-white p-7 shadow-[0_18px_50px_rgba(15,47,74,0.08)]">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#EAF2FF] text-[#1B24F2]">
                 <CheckCircle2 size={25} />
               </div>
