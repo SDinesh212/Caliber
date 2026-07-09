@@ -43,8 +43,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative overflow-hidden bg-[#f8fbff]  px-5 py-24">
-      
+    <section className="relative overflow-hidden bg-[#f8fbff] px-5 py-24">
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full border border-[#dfcfb5] bg-white/80 px-4 py-2 text-sm font-bold text-[#12324f] shadow-sm">
@@ -70,7 +69,7 @@ export default function Stats() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.22 }}
+                viewport={{ once: false, amount: 0.22 }}
                 transition={{ delay: index * 0.1 }}
                 className="group rounded-[28px] border border-white/80 bg-white/85 p-6 shadow-[0_20px_60px_rgba(15,47,74,0.08)] backdrop-blur-xl transition hover:-translate-y-2 hover:shadow-[0_30px_80px_rgba(15,47,74,0.14)]"
               >
@@ -102,7 +101,7 @@ export default function Stats() {
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "86%" }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 1, delay: index * 0.12 }}
                     className="h-2 rounded-full bg-gradient-to-r from-[#12324f] to-[#238a72]"
                   />
@@ -119,48 +118,57 @@ export default function Stats() {
 function Counter({ target }: { target: number }) {
   const [count, setCount] = useState(0);
   const counterRef = useRef<HTMLSpanElement | null>(null);
-  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     const element = counterRef.current;
     if (!element) return;
 
-    let timer: ReturnType<typeof setInterval> | undefined;
+    let animationFrame: number;
+
+    const animateCounter = () => {
+      let startTime: number | null = null;
+      const duration = 1400;
+
+      setCount(0);
+
+      const update = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+
+        const currentValue = Math.floor(progress * target);
+
+        setCount(currentValue);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(update);
+        } else {
+          setCount(target);
+        }
+      };
+
+      animationFrame = requestAnimationFrame(update);
+    };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || hasAnimatedRef.current) return;
-
-        hasAnimatedRef.current = true;
-        observer.unobserve(element);
-
-        let start = 0;
-        const duration = 1400;
-        const increment = target / (duration / 16);
-
-        timer = setInterval(() => {
-          start += increment;
-
-          if (start >= target) {
-            setCount(target);
-            if (timer) {
-              clearInterval(timer);
-            }
-          } else {
-            setCount(Math.floor(start));
-          }
-        }, 16);
+        if (entry.isIntersecting) {
+          animateCounter();
+        } else {
+          cancelAnimationFrame(animationFrame);
+          setCount(0);
+        }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.5,
+      }
     );
 
     observer.observe(element);
 
     return () => {
       observer.disconnect();
-      if (timer) {
-        clearInterval(timer);
-      }
+      cancelAnimationFrame(animationFrame);
     };
   }, [target]);
 
