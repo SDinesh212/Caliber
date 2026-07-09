@@ -16,10 +16,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const isActiveHref = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-
+    if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
@@ -50,9 +47,7 @@ export default function Navbar() {
   ) => {
     closeMenu?.();
 
-    if (href.includes("#") || href.startsWith("http")) {
-      return;
-    }
+    if (href.includes("#") || href.startsWith("http")) return;
 
     if (href === pathname) {
       event.preventDefault();
@@ -77,17 +72,17 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? "px-0 pt-0" : "px-4 pt-7"
+      className={`fixed left-0 top-0 z-50 w-full px-0 pt-0 transition-all duration-500 ${
+        scrolled ? "xl:px-0 xl:pt-0" : "xl:px-4 xl:pt-7"
       }`}
     >
       <motion.nav
         layout
         transition={{ type: "spring", stiffness: 180, damping: 24 }}
-        className={`mx-auto flex items-center justify-between border bg-white/95 px-6 shadow-[0_20px_60px_rgba(15,47,74,0.08)] backdrop-blur-xl transition-all duration-500 ${
+        className={`mx-auto flex h-[82px] max-w-full items-center justify-between rounded-none border border-white bg-white/95 px-6 shadow-[0_20px_60px_rgba(15,47,74,0.08)] backdrop-blur-xl transition-all duration-500 ${
           scrolled
-            ? "h-[82px] max-w-full rounded-none border-white"
-            : "h-[78px] max-w-[1510px] rounded-[22px] border-white"
+            ? "xl:h-[82px] xl:max-w-full xl:rounded-none"
+            : "xl:h-[78px] xl:max-w-[1510px] xl:rounded-[22px]"
         }`}
       >
         <BrandLogo placement="navbar" priority />
@@ -149,13 +144,10 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={link.href}
-                    onClick={(event) =>
-                      handlePageLinkClick(event, link.href)
-                    }
+                    onClick={(event) => handlePageLinkClick(event, link.href)}
                     className={desktopNavClass(isActiveHref(link.href))}
                   >
                     {link.label}
-
                     {link.icon === "right" && <ChevronRight size={14} />}
                     {link.icon === "down" && <ChevronDown size={14} />}
                   </Link>
@@ -204,9 +196,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -12, scale: 0.98 }}
             transition={{ duration: 0.22 }}
-            className={`mx-auto mt-3 rounded-3xl bg-white p-6 shadow-xl xl:hidden ${
-              scrolled ? "max-w-full mx-4" : "max-w-[1510px]"
-            }`}
+            className="mx-4 mt-3 max-h-[calc(100vh-105px)] overflow-y-auto rounded-3xl bg-white p-6 shadow-xl xl:hidden"
           >
             <div className="flex flex-col gap-5">
               {siteNavLinks.map((link, index) => (
