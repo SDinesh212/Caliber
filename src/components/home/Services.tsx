@@ -105,7 +105,7 @@ export default function Services() {
                 key={service.title}
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
                 whileHover={{ y: -10, scale: 1.018 }}
                 glow

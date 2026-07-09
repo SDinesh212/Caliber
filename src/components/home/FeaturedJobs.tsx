@@ -163,7 +163,7 @@ export default function FeaturedJobs() {
               key={job.title}
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.04, duration: 0.32 }}
               className="h-full"
             >
@@ -206,10 +206,10 @@ export default function FeaturedJobs() {
                   {job.tags.map((tag, tagIndex) => (
                     <motion.span
                       key={tag}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: false }}
-                      transition={{ delay: index * 0.04 + tagIndex * 0.04 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.04 + tagIndex * 0.04 }}
                       className="rounded-full bg-[#F2F6FA] px-3 py-1 text-xs font-medium text-[#475467]"
                     >
                       {tag}

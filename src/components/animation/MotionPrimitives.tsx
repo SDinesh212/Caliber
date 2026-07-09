@@ -15,8 +15,8 @@ import type { MouseEvent, ReactNode } from "react";
 const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export const inViewViewport = {
-  once: false,
-  amount: 0.28,
+  once: true,
+  amount: 0.18,
 };
 
 export const staggerContainer: Variants = {
@@ -33,12 +33,10 @@ export const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 34,
-    filter: "blur(8px)",
   },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.68,
       ease: smoothEase,
@@ -49,11 +47,9 @@ export const fadeUp: Variants = {
 export const fadeIn: Variants = {
   hidden: {
     opacity: 0,
-    filter: "blur(8px)",
   },
   show: {
     opacity: 1,
-    filter: "blur(0px)",
     transition: {
       duration: 0.7,
       ease: smoothEase,
@@ -65,12 +61,10 @@ export const slideLeft: Variants = {
   hidden: {
     opacity: 0,
     x: -36,
-    filter: "blur(8px)",
   },
   show: {
     opacity: 1,
     x: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.72,
       ease: smoothEase,
@@ -82,12 +76,10 @@ export const slideRight: Variants = {
   hidden: {
     opacity: 0,
     x: 36,
-    filter: "blur(8px)",
   },
   show: {
     opacity: 1,
     x: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.72,
       ease: smoothEase,
@@ -100,13 +92,11 @@ export const popIn: Variants = {
     opacity: 0,
     scale: 0.94,
     y: 18,
-    filter: "blur(8px)",
   },
   show: {
     opacity: 1,
     scale: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.72,
       ease: smoothEase,

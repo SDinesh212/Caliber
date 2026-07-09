@@ -82,7 +82,7 @@ export default function HowItWorks() {
                     key={item}
                     initial={{ opacity: 0, x: -12 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.06 }}
                     className="flex items-center gap-3 text-sm font-medium text-[#344054]"
                   >
@@ -187,7 +187,7 @@ export default function HowItWorks() {
                     key={item}
                     initial={{ opacity: 0, x: 12 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.06 }}
                     className="flex items-center gap-3 text-sm font-medium text-[#344054]"
                   >

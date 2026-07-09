@@ -82,7 +82,7 @@ export default function WhyChooseUs() {
           <MagneticCard
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             whileHover={{ y: -6, scale: 1.02 }}
             glow
             className="rounded-[18px] bg-white p-5 shadow-[0_18px_45px_rgba(15,47,74,0.12)]"
@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
                   key={item}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.08 }}
                   className="flex items-center justify-between gap-5"
                 >
