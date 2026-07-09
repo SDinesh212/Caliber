@@ -26,8 +26,8 @@ export default function BrandLogo({
   return (
     <Link href="/" className={styles.link} aria-label="Calliber Tech LLC home">
       <Image
-        src="/images/calliber-logo2.png"
-        alt="Calliber Tech LLC Logo"
+        src="/images/calliber-logo.jpg"
+        alt="Caliber Tech LLC Logo"
         width={1672}
         height={941}
         priority={priority}

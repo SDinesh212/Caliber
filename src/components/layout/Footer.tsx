@@ -181,7 +181,7 @@ export default function Footer() {
         <div className="mt-20 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 text-sm text-white/50 md:flex-row">
 
           <p>
-            © {new Date().getFullYear()} Calliber Tech LLC.
+            © {new Date().getFullYear()} Caliber Tech LLC.
             All Rights Reserved.
           </p>
 
