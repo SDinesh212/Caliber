@@ -8,7 +8,7 @@ import { contractDetails } from "./contractsData";
 export default function ContractsIntro() {
   return (
     <PageSection className="bg-[#f8fbff]">
-      <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_420px]">
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_420px] lg:items-start">
         <Reveal>
           <div className="premium-card rounded-[32px] border border-[#E4EAF2] bg-white p-8 shadow-[0_20px_70px_rgba(15,47,74,0.08)]">
             <p className="text-sm font-black uppercase tracking-[0.24em] text-[#238A72]">
@@ -45,7 +45,7 @@ export default function ContractsIntro() {
         </Reveal>
 
         <Reveal direction="right">
-          <div className="premium-card premium-orbit-bg rounded-[32px] bg-[#102A43] p-7 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)] lg:sticky lg:top-28">
+          <div className="premium-card premium-orbit-bg rounded-[32px] bg-[#102A43] p-7 text-white shadow-[0_24px_80px_rgba(15,47,74,0.18)]">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-[#6EE7D8]">
               Contract Details
             </p>

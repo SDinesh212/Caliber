@@ -284,6 +284,17 @@ body {
   transform: translateX(-130%) skewX(-18deg);
 }
 
+.hero-visual-stage {
+  perspective: 1200px;
+}
+
+.hero-visual-image {
+  filter: drop-shadow(0 28px 62px rgba(27, 99, 255, 0.18));
+  transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  transform-origin: 50% 56%;
+  will-change: transform, filter;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .animated-sheen:hover::after {
     animation: sheen-sweep 0.82s ease;
@@ -324,6 +335,10 @@ body {
 
   .premium-map-frame::before {
     animation: map-scan 5.6s ease-in-out infinite;
+  }
+
+  .hero-visual-image {
+    animation: hero-visual-float 7.2s ease-in-out infinite;
   }
 }
 
@@ -384,6 +399,18 @@ body {
   }
 }
 
+@keyframes hero-visual-float {
+  0%,
+  100% {
+    filter: drop-shadow(0 28px 62px rgba(27, 99, 255, 0.18));
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 42px 78px rgba(27, 99, 255, 0.24));
+    transform: translate3d(0, -16px, 0) rotateX(1.4deg) rotateY(-2deg);
+  }
+}
+
 @keyframes pulse-ring {
   0%,
   100% {
@@ -439,4 +466,21 @@ body {
     left: 118%;
     opacity: 0;
   }
+}
+@keyframes product-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-product-marquee {
+  animation: product-marquee 24s linear infinite;
+}
+
+.animate-product-marquee:hover {
+  animation-play-state: paused;
 }

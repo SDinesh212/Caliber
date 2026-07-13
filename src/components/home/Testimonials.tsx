@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, type MouseEvent } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Star } from "lucide-react";
 import { MagneticCard } from "@/components/animation/MotionPrimitives";
@@ -123,11 +124,49 @@ const testimonialCardReveal: Variants = {
 export default function Testimonials() {
   const [featuredTestimonial, ...bentoTestimonials] = testimonials;
 
+  const [cursorLabel, setCursorLabel] = useState({
+    name: "",
+    x: 0,
+    y: 0,
+    visible: false,
+  });
+
+  const handleCursorMove = (
+    e: MouseEvent<HTMLDivElement>,
+    name: string
+  ) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const labelWidth = 140;
+    const labelHeight = 34;
+
+    const x = Math.min(
+      Math.max(e.clientX - rect.left + 12, 10),
+      rect.width - labelWidth
+    );
+
+    const y = Math.min(
+      Math.max(e.clientY - rect.top - 10, 10),
+      rect.height - labelHeight
+    );
+
+    setCursorLabel({
+      name,
+      x,
+      y,
+      visible: true,
+    });
+  };
+
+  const hideCursorLabel = () => {
+    setCursorLabel((prev) => ({
+      ...prev,
+      visible: false,
+    }));
+  };
+
   return (
-    <section
-      id="stories"
-      className="scroll-mt-28 bg-white px-5 py-24"
-    >
+    <section id="stories" className="scroll-mt-28 bg-white px-5 py-24">
       <div className="mx-auto max-w-[1510px]">
         <motion.div
           variants={testimonialStagger}
@@ -163,8 +202,12 @@ export default function Testimonials() {
             variants={testimonialCardReveal}
             whileHover={{ y: -5, scale: 1.006 }}
             glow
-            className="group flex min-h-[360px] overflow-hidden rounded-lg border border-[#12324F]/10 bg-[#12324F] p-7 text-white shadow-[0_18px_45px_rgba(18,50,79,0.16)] md:col-span-2 xl:col-span-2 xl:row-span-2"
+            onMouseMove={(e) => handleCursorMove(e, "Client Score")}
+            onMouseLeave={hideCursorLabel}
+            className="group relative flex min-h-[360px] overflow-hidden rounded-lg border border-[#12324F]/10 bg-[#12324F] p-7 text-white shadow-[0_18px_45px_rgba(18,50,79,0.16)] md:col-span-2 xl:col-span-2 xl:row-span-2"
           >
+            <CursorNameLabel cursorLabel={cursorLabel} name="Client Score" />
+
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#FF4E1F] via-[#38BDF8] to-[#14B8A6]" />
 
             <div className="relative z-10 flex h-full flex-col justify-between">
@@ -177,7 +220,6 @@ export default function Testimonials() {
                     4.9
                   </p>
                 </div>
-
               </div>
 
               <div>
@@ -214,8 +256,17 @@ export default function Testimonials() {
             variants={testimonialCardReveal}
             whileHover={{ y: -5, scale: 1.006 }}
             glow
-            className="group flex min-h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-[#E4E7EC] bg-[#FFF8F3] p-7 shadow-[0_12px_35px_rgba(15,47,74,0.06)] md:col-span-2 md:p-9 xl:col-span-4 xl:row-span-2"
+            onMouseMove={(e) =>
+              handleCursorMove(e, featuredTestimonial.name)
+            }
+            onMouseLeave={hideCursorLabel}
+            className="group relative flex min-h-[360px] flex-col justify-between overflow-hidden rounded-lg border border-[#E4E7EC] bg-[#FFF8F3] p-7 shadow-[0_12px_35px_rgba(15,47,74,0.06)] md:col-span-2 md:p-9 xl:col-span-4 xl:row-span-2"
           >
+            <CursorNameLabel
+              cursorLabel={cursorLabel}
+              name={featuredTestimonial.name}
+            />
+
             <div>
               <div className="flex items-center gap-3 text-sm font-bold uppercase tracking-wider text-[#FF4E1F]">
                 Featured story
@@ -244,11 +295,15 @@ export default function Testimonials() {
               variants={testimonialCardReveal}
               whileHover={{ y: -5, scale: 1.006 }}
               glow
+              onMouseMove={(e) => handleCursorMove(e, item.name)}
+              onMouseLeave={hideCursorLabel}
               className={[
-                "group flex min-h-[250px] flex-col justify-between overflow-hidden rounded-lg border border-[#E4E7EC] bg-white p-6 shadow-[0_12px_35px_rgba(15,47,74,0.06)] transition hover:shadow-[0_24px_60px_rgba(15,47,74,0.12)]",
+                "group relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-lg border border-[#E4E7EC] bg-white p-6 shadow-[0_12px_35px_rgba(15,47,74,0.06)] transition hover:shadow-[0_24px_60px_rgba(15,47,74,0.12)]",
                 testimonialLayouts[index],
               ].join(" ")}
             >
+              <CursorNameLabel cursorLabel={cursorLabel} name={item.name} />
+
               <div>
                 <div className="mb-7 flex items-center justify-between gap-5">
                   <h3 className="text-xl font-black text-[#12324F]">
@@ -275,6 +330,40 @@ export default function Testimonials() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function CursorNameLabel({
+  cursorLabel,
+  name,
+}: {
+  cursorLabel: {
+    name: string;
+    x: number;
+    y: number;
+    visible: boolean;
+  };
+  name: string;
+}) {
+  if (cursorLabel.name !== name) return null;
+
+  return (
+    <motion.div
+      animate={{
+        x: cursorLabel.x,
+        y: cursorLabel.y,
+        opacity: cursorLabel.visible ? 1 : 0,
+        scale: cursorLabel.visible ? 1 : 0.9,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 420,
+        damping: 30,
+      }}
+      className="pointer-events-none absolute left-0 top-0 z-50 hidden max-w-[140px] truncate rounded-md bg-[#1B63FF] px-3 py-1.5 text-xs font-bold text-white shadow-lg md:block"
+    >
+      {name}
+    </motion.div>
   );
 }
 

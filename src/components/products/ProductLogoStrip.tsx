@@ -1,29 +1,36 @@
 import Image from "next/image";
 import Reveal from "@/components/animation/Reveal";
-import PageSection from "@/components/ui/PageSection";
 import { products } from "./productsData";
 
 export default function ProductLogoStrip() {
+  const marqueeProducts = [...products, ...products];
+
   return (
-    <PageSection className="pt-10">
-      <Reveal className="grid gap-5 rounded-[28px] border border-[#E4EAF2] bg-[#f8fbff] p-5 shadow-[0_18px_50px_rgba(15,47,74,0.08)] sm:grid-cols-2 lg:grid-cols-6">
-        {products.map((product) => (
-          <div
-            key={product.partner}
-            className="premium-card premium-depth flex min-h-[96px] items-center justify-center rounded-2xl bg-white p-4 shadow-sm"
-          >
-            <div className="relative h-16 w-full">
-              <Image
-                src={product.image}
-                alt={`${product.partner} logo`}
-                fill
-                sizes="(max-width: 1023px) 50vw, 180px"
-                className="object-contain"
-              />
+    <div className="mx-auto -mt-8 max-w-[1410px] px-5">
+      <Reveal className="relative overflow-hidden rounded-[28px] p-5 ">
+        <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#F8FBFF] to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#F8FBFF] to-transparent" />
+
+        <div className="flex w-max animate-product-marquee gap-5">
+          {marqueeProducts.map((product, index) => (
+            <div
+              key={`${product.partner}-${index}`}
+              className="premium-card premium-depth flex h-[96px] w-[230px] shrink-0 items-center justify-center rounded-2xl bg-white p-4 shadow-sm"
+            >
+              <div className="relative h-16 w-full">
+                <Image
+                  src={product.image}
+                  alt={`${product.partner} logo`}
+                  fill
+                  sizes="230px"
+                  className="object-contain"
+                  priority={index < products.length}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </Reveal>
-    </PageSection>
+    </div>
   );
 }

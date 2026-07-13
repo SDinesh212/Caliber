@@ -1,0 +1,182 @@
+<svg width="1060" height="760" viewBox="0 0 1060 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="50" y1="0" x2="820" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#F0F7FF"/>
+      <stop offset="1" stop-color="#DCEBFF"/>
+    </linearGradient>
+    <linearGradient id="cubeTop" x1="415" y1="260" x2="570" y2="315" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9ED4FF"/>
+      <stop offset="1" stop-color="#2F69FF"/>
+    </linearGradient>
+    <linearGradient id="cubeLeft" x1="390" y1="320" x2="505" y2="465" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16B6FF"/>
+      <stop offset="1" stop-color="#058CFF"/>
+    </linearGradient>
+    <linearGradient id="cubeRight" x1="502" y1="320" x2="615" y2="462" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B63FF"/>
+      <stop offset="1" stop-color="#00B8D9"/>
+    </linearGradient>
+    <linearGradient id="blueIcon" x1="0" y1="0" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7547FF"/>
+      <stop offset="1" stop-color="#00B8D9"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#3E77C9" flood-opacity="0.22"/>
+    </filter>
+    <filter id="cardShadow" x="-25%" y="-25%" width="150%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="11" flood-color="#6A8DC7" flood-opacity="0.24"/>
+    </filter>
+    <pattern id="dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#97C8F7" opacity="0.68"/>
+    </pattern>
+    <g id="hexCard">
+      <path d="M90 0L167.94 45V135L90 180L12.06 135V45L90 0Z" fill="white" filter="url(#cardShadow)"/>
+      <path d="M90 12L157.55 51V129L90 168L22.45 129V51L90 12Z" fill="url(#bg)"/>
+      <path d="M22.45 129L90 168L157.55 129L90 180L12.06 135L22.45 129Z" fill="#BBD2F4" opacity="0.62"/>
+    </g>
+  </defs>
+
+  <rect width="1060" height="760" rx="34" fill="url(#bg)"/>
+
+  <g opacity="0.72">
+    <path d="M170 632C230 580 258 548 325 550C410 552 421 484 504 488C612 492 617 397 728 405C805 410 846 353 894 315" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M120 684C210 600 280 622 350 585C414 552 464 555 521 596C581 640 664 628 725 574C771 533 831 530 900 556" stroke="#CDE4FF" stroke-width="2"/>
+    <path d="M70 560H150L188 522H292L328 488H407" stroke="#FFFFFF" stroke-width="2"/>
+    <path d="M664 126H742L779 164H869" stroke="#FFFFFF" stroke-width="2"/>
+    <circle cx="171" cy="632" r="5" fill="#DFFFFF"/>
+    <circle cx="350" cy="585" r="5" fill="#DFFFFF"/>
+    <circle cx="725" cy="574" r="5" fill="#DFFFFF"/>
+    <circle cx="869" cy="164" r="5" fill="#DFFFFF"/>
+    <circle cx="407" cy="488" r="5" fill="#DFFFFF"/>
+  </g>
+
+  <g opacity="0.42">
+    <path d="M400 70C455 40 543 54 607 73C671 92 735 77 804 93C839 101 875 119 905 143V225H371V111C378 94 386 80 400 70Z" fill="url(#dots)"/>
+  </g>
+
+  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="3" opacity="0.95">
+    <path d="M315 294C365 292 369 361 419 355" stroke="#28C7E8" stroke-dasharray="3 18"/>
+    <path d="M316 390C363 411 390 420 438 392" stroke="#1B63FF" stroke-dasharray="3 18"/>
+    <path d="M462 492C448 536 414 555 365 577" stroke="#8E55FF" stroke-dasharray="3 18"/>
+    <path d="M526 494C528 540 529 572 530 623" stroke="#28C7E8" stroke-dasharray="3 18"/>
+    <path d="M608 455C665 477 704 498 743 531" stroke="#28C7E8" stroke-dasharray="3 18"/>
+    <path d="M637 359C680 351 699 328 730 287" stroke="#1B63FF" stroke-dasharray="3 18"/>
+    <path d="M578 250C585 198 586 163 589 112" stroke="#1B63FF" stroke-dasharray="3 18"/>
+    <path d="M507 247C472 214 446 177 419 140" stroke="#28C7E8" stroke-dasharray="3 18"/>
+    <path d="M618 250C666 229 703 194 751 172" stroke="#5B6CFF" stroke-dasharray="3 18"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <ellipse cx="530" cy="423" rx="166" ry="78" fill="#AECBF0" opacity="0.56"/>
+    <ellipse cx="530" cy="407" rx="145" ry="66" fill="#EAF4FF" stroke="#B8D5F8"/>
+    <ellipse cx="530" cy="386" rx="122" ry="55" fill="#F8FCFF" stroke="#C9DDF5"/>
+    <path d="M530 255L626 310L530 365L434 310L530 255Z" fill="url(#cubeTop)"/>
+    <path d="M434 310L530 365V486L434 431V310Z" fill="url(#cubeLeft)"/>
+    <path d="M626 310L530 365V486L626 431V310Z" fill="url(#cubeRight)"/>
+    <path d="M434 310L530 365L626 310" stroke="#FFFFFF" stroke-width="2.5"/>
+    <path d="M530 365V486" stroke="#FFFFFF" stroke-opacity="0.56" stroke-width="2.5"/>
+    <g fill="#D9F6FF">
+      <circle cx="530" cy="392" r="17"/>
+      <path d="M499 431C499 412 512 400 530 400C548 400 561 412 561 431V443H499V431Z"/>
+      <circle cx="492" cy="408" r="13"/>
+      <path d="M471 443V431C471 416 481 407 494 407C506 407 516 416 516 431V443H471Z"/>
+      <circle cx="568" cy="408" r="13"/>
+      <path d="M544 443V431C544 416 554 407 567 407C580 407 589 416 589 431V443H544Z"/>
+    </g>
+  </g>
+
+  <g transform="translate(336 76)">
+    <use href="#hexCard"/>
+    <g transform="translate(59 37)" stroke="url(#blueIcon)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 45H62C75 45 80 27 68 21C62 3 35 7 33 25C22 17 7 25 10 39C11 42 12 44 15 45Z"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">CLOUD</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">ENGINEERING</text>
+  </g>
+
+  <g transform="translate(560 38)">
+    <use href="#hexCard"/>
+    <text x="90" y="61" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="900" fill="#1B63FF">&lt;/&gt;</text>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">SOFTWARE</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">DEVELOPMENT</text>
+  </g>
+
+  <g transform="translate(782 108)">
+    <use href="#hexCard"/>
+    <g transform="translate(61 37)">
+      <path d="M29 0L60 12V37C60 58 43 72 29 78C15 72 0 58 0 37V12L29 0Z" fill="url(#blueIcon)"/>
+      <path d="M21 35V28C21 18 37 18 37 28V35" stroke="white" stroke-width="5" stroke-linecap="round"/>
+      <rect x="17" y="35" width="24" height="23" rx="4" fill="white" opacity="0.92"/>
+      <path d="M29 42V52" stroke="#1B63FF" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">CYBER</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">SECURITY</text>
+  </g>
+
+  <g transform="translate(48 250)">
+    <use href="#hexCard"/>
+    <g transform="translate(65 34)" fill="url(#blueIcon)">
+      <ellipse cx="25" cy="12" rx="31" ry="12"/>
+      <path d="M-6 12V52C-6 59 8 66 25 66C42 66 56 59 56 52V12C56 19 42 26 25 26C8 26 -6 19 -6 12Z"/>
+      <path d="M-6 32C-6 39 8 46 25 46C42 46 56 39 56 32" stroke="white" stroke-opacity="0.72" stroke-width="3"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">DATABASE</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">MANAGEMENT</text>
+  </g>
+
+  <g transform="translate(875 330)">
+    <use href="#hexCard"/>
+    <g transform="translate(65 34)" fill="url(#blueIcon)">
+      <ellipse cx="25" cy="12" rx="31" ry="12"/>
+      <path d="M-6 12V52C-6 59 8 66 25 66C42 66 56 59 56 52V12C56 19 42 26 25 26C8 26 -6 19 -6 12Z"/>
+      <path d="M-6 32C-6 39 8 46 25 46C42 46 56 39 56 32" stroke="white" stroke-opacity="0.72" stroke-width="3"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">DATA &amp;</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">ANALYTICS</text>
+  </g>
+
+  <g transform="translate(760 512)">
+    <use href="#hexCard"/>
+    <g transform="translate(56 39)" fill="none" stroke="url(#blueIcon)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M28 12C16 2 2 12 9 27C-3 30 -1 52 14 51C13 65 31 70 38 58"/>
+      <path d="M58 12C70 2 84 12 77 27C89 30 87 52 72 51C73 65 55 70 48 58"/>
+      <path d="M43 8V64"/>
+      <path d="M27 32H43M59 32H43M27 48H43M59 48H43"/>
+    </g>
+    <text x="90" y="125" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="800" fill="#102A43">AI / ML</text>
+  </g>
+
+  <g transform="translate(556 618)">
+    <use href="#hexCard"/>
+    <g transform="translate(57 36)" fill="#17C9B2">
+      <path d="M44 0L54 20L76 17L70 38L88 51L68 62L70 84L48 80L34 98L24 78L2 81L8 60L-10 47L10 36L8 14L30 18L44 0Z"/>
+      <circle cx="39" cy="49" r="23" fill="white" opacity="0.92"/>
+    </g>
+    <text x="90" y="127" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#102A43">DEVOPS</text>
+  </g>
+
+  <g transform="translate(270 570)">
+    <use href="#hexCard"/>
+    <g transform="translate(50 31)" fill="none" stroke="url(#blueIcon)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="40" cy="42" r="8" fill="#7547FF" stroke="none"/>
+      <circle cx="12" cy="24" r="8" fill="#7547FF" stroke="none"/>
+      <circle cx="68" cy="24" r="8" fill="#7547FF" stroke="none"/>
+      <circle cx="12" cy="66" r="8" fill="#7547FF" stroke="none"/>
+      <circle cx="68" cy="66" r="8" fill="#7547FF" stroke="none"/>
+      <path d="M19 29L33 38M61 29L47 38M19 62L33 48M61 62L47 48"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">NETWORK</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">ENGINEERING</text>
+  </g>
+
+  <g transform="translate(134 456)">
+    <use href="#hexCard"/>
+    <g transform="translate(72 34)" fill="none" stroke="#1B9CFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="0" y="0" width="39" height="70" rx="7"/>
+      <path d="M14 8H25M17 60H22"/>
+    </g>
+    <text x="90" y="112" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">MOBILE</text>
+    <text x="90" y="134" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#102A43">DEVELOPMENT</text>
+  </g>
+</svg>

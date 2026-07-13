@@ -134,11 +134,8 @@ export default function NewsletterSection() {
               </div>
             </label>
 
-            <motion.div
-              whileHover={{ y: -3, scale: 1.01 }}
-              className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <div className="inline-flex items-center gap-3 rounded-2xl bg-[#1A73E8] px-4 py-3 text-white shadow-md">
+            <motion.div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="inline-flex items-center gap-3 rounded-2xl bg-[#1A73E8] px-4 py-3 text-white shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-lg">
                 <ShieldCheck size={21} />
                 <span className="text-sm font-semibold">
                   protected by reCAPTCHA
@@ -150,7 +147,7 @@ export default function NewsletterSection() {
 
               <button
                 type="submit"
-                className="animated-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1B63FF] px-8 py-3 text-sm font-black uppercase text-white transition hover:bg-[#123FE8]"
+                className="animated-sheen inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1B63FF] px-8 py-3 text-sm font-black uppercase text-white transition duration-200 hover:-translate-y-1 hover:bg-[#123FE8] hover:shadow-lg hover:shadow-[#1B63FF]/20"
               >
                 Send
                 <Send size={17} />

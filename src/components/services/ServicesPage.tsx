@@ -15,6 +15,12 @@ export default function ServicesPage() {
           { label: "Request talent", href: "/request-quote" },
           { label: "View jobs", href: "/jobs", variant: "secondary" },
         ]}
+        heroImage={{
+          src: "/images/services/services-hero-visual.svg",
+          alt: "Technology staffing service domains connected around a central talent platform",
+          width: 1060,
+          height: 760,
+        }}
       />
 
       <ServicesControlPanel />

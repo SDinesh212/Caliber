@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
@@ -14,6 +15,13 @@ type HeroAction = {
   variant?: "primary" | "secondary";
 };
 
+type HeroImage = {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
 type SubpageHeroProps = {
   label: string;
   title: string;
@@ -21,6 +29,7 @@ type SubpageHeroProps = {
   icon?: LucideIcon;
   metrics?: HeroMetric[];
   actions?: HeroAction[];
+  heroImage?: HeroImage;
 };
 
 export default function SubpageHero({
@@ -30,17 +39,30 @@ export default function SubpageHero({
   icon: Icon,
   metrics = [],
   actions = [],
+  heroImage,
 }: SubpageHeroProps) {
+  const hasHeroImage = Boolean(heroImage);
+
   return (
     <section className="relative overflow-hidden bg-[#f8fbff] px-5 pb-16 pt-[150px] md:pb-20">
-      <div className="relative z-10 mx-auto max-w-[1510px]">
+      <div
+        className={`relative z-10 mx-auto max-w-[1510px] ${
+          hasHeroImage
+            ? "grid items-center gap-14 lg:grid-cols-[1fr_520px]"
+            : ""
+        }`}
+      >
         <Reveal direction="left">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#D8C7A8] bg-white/[0.85] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#102A43] shadow-sm">
             {Icon && <Icon size={16} className="text-[#1B63FF]" />}
             {label}
           </div>
 
-          <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight text-[#102A43] md:text-6xl">
+          <h1
+            className={`mt-6 text-4xl font-black leading-tight text-[#102A43] md:text-6xl ${
+              hasHeroImage ? "max-w-3xl" : "max-w-4xl"
+            }`}
+          >
             {title}
           </h1>
 
@@ -85,6 +107,25 @@ export default function SubpageHero({
             </div>
           )}
         </Reveal>
+
+        {heroImage && (
+          <Reveal direction="right">
+            <div className="hero-visual-stage relative mx-auto w-full max-w-[520px] lg:ml-auto">
+              <div className="hero-visual-image premium-card premium-depth relative overflow-hidden rounded-[34px] border border-[#E4EAF2] bg-white p-3 shadow-[0_30px_90px_rgba(15,47,74,0.14)]">
+                <div className="relative h-[320px] overflow-hidden rounded-[26px] md:h-[360px]">
+                  <Image
+                    src={heroImage.src}
+                    alt={heroImage.alt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 520px, calc(100vw - 40px)"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );
