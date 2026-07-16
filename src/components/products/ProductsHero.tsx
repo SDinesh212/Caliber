@@ -53,7 +53,7 @@ export default function ProductsHero() {
 
           <h1 className="mt-7 text-4xl font-black leading-[1.08] tracking-[-0.04em] text-[#102A43] sm:text-5xl md:text-6xl lg:text-[68px]">
             Powering businesses with leading technology and{" "}
-            <span className="text-[#1B63FF]">trusted solutions.</span>
+           trusted solutions. 
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-[#53657A] sm:text-lg">
